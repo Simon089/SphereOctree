@@ -24,17 +24,7 @@ OctreeNode::OctreeNode(shared_ptr<BoundingBox> _bb,
   int rIts = 1;
 
   // Find a sphere which includes all faces.
-  // Possible approaches: Ritter's algorithm / midpoint of bounding box /
-  // Fischer's exact solver. Using the idea of "Ritter's algorithm":
-  // 1. Pick a point x from P, search a point y in P, which has the largest
-  // distance from x.
-  // 2. Search a point z in P, which has the largest distance from y.
-  //    Set up an initial ball B, with its centre as the midpoint of y and z,
-  //    the radius as half of the distance between y and z.
-  // 3. If all points in P are within ball B, then we get a bounding sphere.
-  //    Otherwise, let p be a point outside the ball, construct a new ball
-  //    covering both point p and previous ball. Repeat this step until all
-  //    points are covered.
+  // Possible approaches: Ritter's algorithm / midpoint of bounding box / Fischer's exact solver.
   while (!allIn()) {
     srand(time(nullptr));
     shared_ptr<Eigen::Vector3f> x = faces->at(rand() % faces->size())->a;
