@@ -301,9 +301,7 @@ int main(int argc, char **argv) {
   glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
   // Initialize scene.
-  cout << "Creating scene and objects with sphere-octrees (this may take a "
-          "while)"
-       << endl;
+  cout << "Creating scene and objects with sphere-octrees." << endl;
   init();
   // Loop until the user closes the window.
   while (!glfwWindowShouldClose(window)) {
